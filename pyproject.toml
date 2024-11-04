@@ -1,0 +1,14 @@
+[project]
+name = "reflekt"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "sqlalchemy>=2.0.36",
+]
+
+[dependency-groups]
+dev = [
+    "pyright>=1.1.387",
+]
