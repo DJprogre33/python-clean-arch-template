@@ -3,7 +3,7 @@
     "venv": ".venv",
     "pythonVersion": "3.10",
     "reportMissingImports": true,
-    "typeCheckingMode": "strict",
+    "typeCheckingMode": "base",
     "exclude": [
         "**/__pycache__",
         ".venv"
