@@ -3,6 +3,7 @@ from uuid import UUID
 
 from reflekt.application.common.query import Query, QueryHandler
 from reflekt.application.user.dto import UserInfo
+from reflekt.application.user.exceptions import UserNotFoundError
 from reflekt.application.user.interfaces import UserReader
 
 
@@ -17,4 +18,7 @@ class GetUserInfoByIdHandler(QueryHandler[GetUserInfoById, UserInfo]):
 
     async def __call__(self, query: GetUserInfoById) -> UserInfo:
         user_info = await self._user_reader.get_user_info_by_id(query.user_id)
+        if not user_info:
+            raise UserNotFoundError(query.user_id)
+
         return user_info
