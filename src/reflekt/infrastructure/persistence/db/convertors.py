@@ -1,11 +1,10 @@
-from sqlalchemy import CursorResult
+from sqlalchemy import Row
 
 from reflekt.application.user.dto import UserInfo
 
 
-def convert_cursor_result_to_user_dto(result: CursorResult) -> UserInfo | None:
-    for row in result:
-        return UserInfo(
-            name=row.name,
-            surname=row.username,
-        )
+def convert_row_to_user_info_dto(row: Row) -> UserInfo | None:
+    return UserInfo(
+        name=row.name,
+        surname=row.username,
+    )
